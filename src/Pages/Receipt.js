@@ -21,6 +21,9 @@ const Receipt = () => {
   };
 
   const handleSubmit = () => {
+    if (!recceiptData.payment) {
+      recceiptData.payment = 'Cash';
+    }
     setReceiptList([...receiptList, recceiptData]);
     setRecceiptData({});
     formRef.current.reset();
@@ -30,19 +33,19 @@ const Receipt = () => {
     formRef.current.reset();
   };
 
-  const handleKeyDown = (e) => {
-    e.preventDefault();
-    let charCode = String.fromCharCode(e.which).toLowerCase();
-    if ((e.ctrlKey || e.metaKey) && charCode === 's') handleSubmit();
-    if (e.key === 'Escape') handleCancel();
-  };
+  // const handleKeyDown = (e) => {
+  //   e.preventDefault();
+  //   let charCode = String.fromCharCode(e.which).toLowerCase();
+  //   if ((e.ctrlKey || e.metaKey) && charCode === 's') handleSubmit();
+  //   if (e.key === 'Escape') handleCancel();
+  // };
 
   return (
     <div className='cntnr'>
       <form
-        onKeyDown={(e) => {
-          handleKeyDown(e);
-        }}
+        // onKeyDown={(e) => {
+        //   handleKeyDown(e);
+        // }}
         className='form'
         ref={formRef}
         onSubmit={(e) => {
@@ -53,14 +56,12 @@ const Receipt = () => {
       >
         <InputComp
           name='date'
-          type='text'
           label='Date'
           onChange={(e) => handleChange(e)}
           className='sm'
         />
         <InputComp
           name='amount'
-          type='text'
           label='Amount'
           onChange={(e) => handleChange(e)}
           className='lg'
@@ -82,7 +83,6 @@ const Receipt = () => {
 
         <InputComp
           name='remark'
-          type='text'
           label='Remark'
           onChange={(e) => handleChange(e)}
           className='lg'
