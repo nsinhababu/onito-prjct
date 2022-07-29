@@ -1,9 +1,11 @@
-const InputComp = ({ onChange, name, label }) => {
+import './inputcomp.css';
+const InputComp = ({ onChange, name, label, className }) => {
   return (
     <div className='inp-cntnr'>
       <label htmlFor={name}>{label}</label>
-      <div>
+      <div className='inp-box'>
         <input
+          className={className}
           onChange={(e) => {
             onChange(e);
           }}

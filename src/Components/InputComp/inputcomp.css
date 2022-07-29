@@ -1,0 +1,27 @@
+.inp-cntnr {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+label {
+  flex: 1;
+}
+
+.inp-box {
+  flex: 3;
+}
+.inp-box input {
+  border: 1px solid lightgray;
+  height: 40px;
+  border-radius: 0.25rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+
+.sm {
+  width: 40%;
+}
+.lg {
+  width: 100%;
+}
